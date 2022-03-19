@@ -1,7 +1,9 @@
 package com.amazingtalker.assessment.domain
 
+import java.util.*
+
 class ShowTimeZoneUseCase {
     operator fun invoke(): String {
-        return ""
+        return Calendar.getInstance().timeZone.displayName
     }
 }

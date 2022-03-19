@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId "com.amazingtalker.assessment"
-        minSdkVersion 23
-        targetSdkVersion 31
+        minSdkVersion 24
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -33,7 +33,8 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:'
+    testImplementation 'junit:junit:4.+'
+    testImplementation 'org.mockito:mockito-core:3.6.28'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 

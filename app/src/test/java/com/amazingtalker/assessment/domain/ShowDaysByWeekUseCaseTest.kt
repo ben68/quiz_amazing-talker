@@ -12,24 +12,27 @@ class ShowDaysByWeekUseCaseTest : TestCase() {
 
     @Before
     override fun setUp() {
+        super.setUp()
+        repository = CalendarRepository()
         showDaysByWeekUseCase  =  ShowDaysByWeekUseCase(repository)
     }
 
     @Test
     fun testInvoke_success() {
-        FormatDateUseCase(2022, 2, 26, 16).let {
-            repository.getWeekList(it).first()
+        FormatDateUseCase(2022, 2, 26, 16, 0).let {
+            repository.getWeek(it)
         }.let {
             showDaysByWeekUseCase(it)
         }.let {
+            assertEquals(it.size, 7)
             with(it.first()) {
                 assertEquals(year, 2022)
-                assertEquals(month, 2)
+                assertEquals(month, 1)
                 assertEquals(date, 20)
             }
             with(it.last()) {
                 assertEquals(year, 2022)
-                assertEquals(month, 2)
+                assertEquals(month, 1)
                 assertEquals(date, 26)
             }
         }
