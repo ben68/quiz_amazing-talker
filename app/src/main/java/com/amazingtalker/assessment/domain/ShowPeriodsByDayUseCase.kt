@@ -5,7 +5,7 @@ import com.amazingtalker.assessment.data.bean.Period
 
 class ShowPeriodsByDayUseCase(private val repo: PeriodRepository) {
 
-    operator fun invoke(date: FormatDateUseCase): List<Period> {
-        return repo.getPeriodListByDay(date)
+    operator fun invoke(teacherName: String, date: FormatDateUseCase): List<Period> {
+        return repo.getPeriodListByDay(teacherName, date)
     }
 }

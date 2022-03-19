@@ -2,10 +2,11 @@ package com.amazingtalker.assessment.data
 
 import com.amazingtalker.assessment.data.bean.Day
 import com.amazingtalker.assessment.data.bean.Week
+import com.amazingtalker.assessment.data.source.remote.ApiService
 import com.amazingtalker.assessment.domain.FormatDateUseCase
 import java.util.*
 
-class CalendarRepository {
+class CalendarRepository() {
 
     private fun findFirstDayOfWeek(date: Date): Date {
         return Calendar.getInstance().run {
@@ -18,7 +19,7 @@ class CalendarRepository {
     }
 
     fun getWeek(startAt: FormatDateUseCase): Week {
-        val date = startAt.getDate()
+        val date = startAt.date
         return Calendar.getInstance().run {
             time = findFirstDayOfWeek(date)
             val startYear = get(Calendar.YEAR)
@@ -33,7 +34,7 @@ class CalendarRepository {
     }
 
     fun getNextWeek(startAt: FormatDateUseCase): Week {
-        val date = startAt.getDate()
+        val date = startAt.date
         return Calendar.getInstance().run {
             time = date
             add(Calendar.DATE, 7)
