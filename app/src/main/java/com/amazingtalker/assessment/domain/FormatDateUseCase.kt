@@ -1,11 +1,15 @@
 package com.amazingtalker.assessment.domain
 
-/**
- * @param date one day, format is https://zh.wikipedia.org/zh-tw/ISO_8601
- */
-class FormatDateUseCase(private val date: String) {
-
+class FormatDateUseCase(
+        private val year: Int,
+        private val month: Int,
+        private val date: Int,
+        private val time: Int
+) {
+    /**
+     * @return format is https://zh.wikipedia.org/zh-tw/ISO_8601
+     */
     operator fun invoke(): String {
-        return date
+        return ""
     }
 }
