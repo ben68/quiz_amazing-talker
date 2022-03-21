@@ -6,7 +6,7 @@ import com.amazingtalker.assessment.data.bean.Week
 
 class ShowDaysByWeekUseCase(private val repo: CalendarRepository) {
 
-    operator fun invoke(week: Week): List<Day> {
+    suspend operator fun invoke(week: Week): List<Day> {
         return repo.getDayListByWeek(week)
     }
 }

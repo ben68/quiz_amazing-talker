@@ -2,27 +2,32 @@ package com.amazingtalker.assessment.domain
 
 import com.amazingtalker.assessment.data.CalendarRepository
 import junit.framework.TestCase
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
 class ShowDaysByWeekUseCaseTest : TestCase() {
 
-    private lateinit var showDaysByWeekUseCase: ShowDaysByWeekUseCase
-    private lateinit var repository: CalendarRepository
+    private lateinit var useCase: ShowDaysByWeekUseCase
+    private lateinit var repo: CalendarRepository
 
     @Before
     override fun setUp() {
         super.setUp()
-        repository = CalendarRepository()
-        showDaysByWeekUseCase  =  ShowDaysByWeekUseCase(repository)
+        repo = CalendarRepository()
+        useCase  =  ShowDaysByWeekUseCase(repo)
     }
 
     @Test
     fun testInvoke_success() {
         FormatDateUseCase(2022, 2, 26, 16, 0).let {
-            repository.getWeek(it)
+            runBlocking {
+                repo.getWeek(it.date)
+            }
         }.let {
-            showDaysByWeekUseCase(it)
+            runBlocking {
+                useCase(it)
+            }
         }.let {
             assertEquals(it.size, 7)
             with(it.first()) {

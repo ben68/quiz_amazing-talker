@@ -5,6 +5,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -17,6 +19,6 @@ interface ApiService {
         }
     }
 
-    @GET("guest/teachers/{teacherName}/schedule?started_at={startAt}")
-    fun getPeriodList(teacherName: String, startAt: String): PeriodListResponse
+    @GET("guest/teachers/{teacherName}/schedule")
+    suspend fun getPeriodList(@Path("teacherName") teacherName: String, @Query("started_at") startAt: String): PeriodListResponse
 }

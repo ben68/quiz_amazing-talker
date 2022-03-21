@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmazingTalkerAssessment</string>
+    <string name="sunday_ab">週日</string>
+    <string name="monday_ab">週一</string>
+    <string name="tuesday_ab">週二</string>
+    <string name="wednesday_ab">週三</string>
+    <string name="thursday_ab">週四</string>
+    <string name="friday_ab">週五</string>
+    <string name="saturday_ab">週六</string>
+    <string name="january_ab">1月</string>
+    <string name="february_ab">2月</string>
+    <string name="march_ab">3月</string>
+    <string name="april_ab">4月</string>
+    <string name="may_ab">5月</string>
+    <string name="june_ab">6月</string>
+    <string name="july_ab">7月</string>
+    <string name="august_ab">8月</string>
+    <string name="september_ab">9月</string>
+    <string name="october_ab">10月</string>
+    <string name="november_ab">11月</string>
+    <string name="december_ab">12月</string>
+    <string name="time_with_zone">時間以 %1$s 顯示</string>
+</resources>

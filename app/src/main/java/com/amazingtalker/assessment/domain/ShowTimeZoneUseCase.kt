@@ -4,6 +4,8 @@ import java.util.*
 
 class ShowTimeZoneUseCase {
     operator fun invoke(): String {
-        return Calendar.getInstance().timeZone.displayName
+        return Calendar.getInstance().timeZone.run {
+            "$displayName ${getDisplayName(false, TimeZone.SHORT)}"
+        }
     }
 }

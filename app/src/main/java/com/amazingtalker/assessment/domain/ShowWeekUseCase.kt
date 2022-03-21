@@ -5,7 +5,7 @@ import com.amazingtalker.assessment.data.bean.Week
 
 class ShowWeekUseCase(private val repo:CalendarRepository) {
 
-    operator fun invoke(startAt: FormatDateUseCase): Week {
-        return repo.getWeek(startAt)
+    suspend operator fun invoke(startAt: FormatDateUseCase): Week {
+        return repo.getWeek(startAt.date)
     }
 }
